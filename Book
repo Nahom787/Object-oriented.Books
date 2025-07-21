@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+private:
+    string title;
+    string author;
+    float price;
+
+public:
+    Book() {
+        title = "";
+        author = "";
+        price = 0;
+    }
+
+    Book(string t, string a, float p) {
+        title = t;
+        author = a;
+        price = p;
+    }
+
+    void applyDiscount(float percent) {
+        price -= price * (percent / 100);
+    }
+
+    void display() {
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "Price: " << price << endl;
+        cout << "-----------------------" << endl;
+    }
+
+    bool isExpensive() {
+        return price > 1000;
+    }
+
+    void inputDetails() {
+        cout << "Enter Title: ";
+        getline(cin, title);
+        cout << "Enter Author: ";
+        getline(cin, author);
+        cout << "Enter Price: ";
+        cin >> price;
+        cin.ignore();
+    }
+};
+
+int main() {
+    Book b1;
+    b1.display();
+
+    Book b2("C++ for Beginners", "Bjarne Stroustrup", 500);
+    b2.display();
+
+    b2.applyDiscount(10);
+    b2.display();
+
+    if (b2.isExpensive()) {
+        cout << "This book is expensive." << endl;
+    } else {
+        cout << "This book is affordable." << endl;
+    }
+
+    Book b3;
+    cin.ignore();
+    b3.inputDetails();
+    b3.display();
+    if (b3.isExpensive()) {
+        cout << "This book is expensive." << endl;
+    } else {
+        cout << "This book is affordable." << endl;
+    }
+
+    return 0;
+}
