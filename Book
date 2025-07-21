@@ -51,7 +51,7 @@ int main() {
     Book b1;
     b1.display();
 
-    Book b2("C++ for Beginners", "Bjarne Stroustrup", 500);
+    Book b2("C++ for Beginners", "Abebe", 500);
     b2.display();
 
     b2.applyDiscount(10);
